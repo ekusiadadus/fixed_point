@@ -32,8 +32,14 @@ int main() {
 C/C++ unit test demo using [GoogleTest](https://google.github.io/googletest/).
 
 
-## Reference List
+## Reference Lists
 
 https://github.com/MikeLankamp/fpm
 
 https://stackoverflow.com/questions/79677/whats-the-best-way-to-do-fixed-point-math
+
+https://codereview.stackexchange.com/questions/184057/fixed-point-arithmetics-in-c-using-templates
+
+https://google.github.io/googletest/
+
+https://github.com/bast/gtest-demo
