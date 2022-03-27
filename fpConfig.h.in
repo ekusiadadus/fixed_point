@@ -1,0 +1,3 @@
+#define fp_VERSION_MAJOR @fp_VERSION_MAJOR @
+#define fp_VERSION_MINOR @fp_VERSION_MINOR @
+#cmakedefine USE_FIXED_POINT
