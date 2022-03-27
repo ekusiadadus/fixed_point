@@ -43,7 +43,7 @@ TEST(arithmethic, division) {
 }
 
 TEST(arithmethic, division_range) {
-  using P = FixedPoint<uint32_t, 12>;
+  using P = FixedPoint<uint64_t, 12>;
 
   // These calculation will overflow and produce
   // wrong results without the intermediate type.
