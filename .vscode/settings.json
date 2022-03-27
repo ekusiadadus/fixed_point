@@ -9,7 +9,8 @@
     "unordered_set": "cpp",
     "string_view": "cpp",
     "ostream": "cpp",
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "iomanip": "cpp"
   },
   "cmake.configureOnOpen": false,
   "files.autoSave": "off",
@@ -46,5 +47,6 @@
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 0}",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "C_Cpp.errorSquiggles": "Disabled"
 }
