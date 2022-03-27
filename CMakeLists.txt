@@ -1,33 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(fp VERSION 1.0)
+project(fixed_point VERSION 1.0)
+
 set(CMAKE_CXX_STANDARD 14)
+
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-option(USE_FIXED_POINT "Use FixedPoint Library" ON)
-
-if(USE_FIXED_POINT)
-  add_subdirectory(fixed_point)
-  list(APPEND EXTRA_LIBS "fixed_point")
-  list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/fixed_point")
-  list(APPEND EXTRA_INCLUDE_DIRS "fixed_point")
-  list(APPEND EXTRA_LINKS fixed_point )
-endif()
 configure_file(fpConfig.h.in fpConfig.h)
 
-# add_subdirectory(fixed_point)
-set_target_properties(fixed_point PROPERTIES LINKER_LANGUAGE CXX)
+add_library(fixed_point INTERFACE)
 
-add_executable(fp
-  test.cpp
-  tests/arithmetic.cpp
-)
-
-target_link_libraries(fp PUBLIC fixed_point gtest_main)
-target_include_directories(fp PUBLIC
-                          ${PROJECT_BINARY_DIR}
-                          ${EXTRA_INCLUDES}
-                          )
+target_include_directories(fixed_point INTERFACE fixed_point)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -41,5 +24,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
-include(GoogleTest)
-gtest_add_tests(TARGET fp)
+add_executable(fixed_point-test
+  tests/arithmetic.cpp
+)
+
+set_target_properties(fixed_point-test PROPERTIES CXX_STANDARD 14)
+target_link_libraries(fixed_point-test PRIVATE fixed_point gtest_main)
+gtest_add_tests(TARGET fixed_point-test)
+
+
+
