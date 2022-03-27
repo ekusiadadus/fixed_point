@@ -11,7 +11,12 @@
 //! \tparam F       the number of bits of the I used to store the fraction
 template <typename I, unsigned int F>
 class FixedPoint {
+  static_assert(std::is_integral<I>::value, "I must be an integral type");
+  static_assert(F > 0, "F must be greater than zero");
+  static_assert(F <= sizeof(I) * 8, "I must at least be able to contain entire fraction");
+  static_assert(F <= 62, "Fraction may be no more than 62 bits");
   std::enable_if_t<std::is_integral<I>::value, I> val;
+  static constexpr I FRACTION_MULT = I(1) << F; 
 
  public:
   FixedPoint();
