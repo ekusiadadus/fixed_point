@@ -7,6 +7,8 @@ A C++ fixed-point library.
 ```
 ./configure.sh
 ./build.sh
+cd build
+./fixed_point-test
 ```
 
 ## Usage
@@ -27,8 +29,11 @@ int main() {
 
 ## Tests
 
+C/C++ unit test demo using [GoogleTest](https://google.github.io/googletest/).
+
 
 ## Reference List
 
 https://github.com/MikeLankamp/fpm
+
 https://stackoverflow.com/questions/79677/whats-the-best-way-to-do-fixed-point-math
